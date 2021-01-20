@@ -16,8 +16,9 @@ mongoose.connect('mongodb://localhost:27017/webshoping', {
 
 const authRouter = require('./routes/auth');
 const regRouter = require('./routes/reg');
-const indexRouter = require('./routes/index');
+const itemsforsaleRouter = require('./routes/itemsforsale');
 const shopingcardRouter = require('./routes/shoppingcard');
+const homeRouter = require('./routes/home');
 
 const app = express();
 
@@ -54,10 +55,12 @@ app.use(methodOverride((req, res) => {
   }
 }));
 
-app.use('/', indexRouter);
+app.use('/', homeRouter);
 app.use('/auth', authRouter);
 app.use('/reg', regRouter);
 app.use('/shopingcard', shopingcardRouter);
+app.use('/itemsforsale', itemsforsaleRouter);
+
 
 // // catch 404 and forward to error handler
 // app.use((req, res, next) => {
