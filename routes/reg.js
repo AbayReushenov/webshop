@@ -22,7 +22,7 @@ router.post('/', async (req, res, next) => {
 
   if (user) {
     req.session.username = req.body.login;
-    return res.redirect('/');
+    return res.render('/index', user);
   }
   return res.render('error', { error: true });
 });
