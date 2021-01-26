@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
 const express = require('express');
 
 const router = express.Router();
@@ -21,7 +23,7 @@ router.post('/', async (req, res, next) => {
 
   console.log('--Seller--', user);
   if (!user) {
-    const Buyer = require('../models/buyer');
+    const Buyer = require('../models/user');
     user = await Buyer.findOne({ login, password });
     console.log('--Buer--', user);
   } else if (user) {
