@@ -9,6 +9,7 @@ const token = require('./data/token');
 const dbConnect = require('./data/database');
 const { checkAuth } = require('./middleware/auth');
 const zeroRouter = require('./routes/zero');
+const shopRouter = require('./routes/shop');
 
 const app = express();
 dbConnect();
@@ -37,9 +38,10 @@ app.use(session({
 }));
 
 app.use('/', zeroRouter);
-// app.use('/users', usersRouter);
 
-app.get('/main', checkAuth, (req, res) => res.render('main'));
+app.use('/shop', checkAuth, shopRouter);
+
+app.get('/main', checkAuth, (req, res) => res.render('user/main'));
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

@@ -1,13 +1,13 @@
-const express = require('express');
+// const express = require('express');
 
-const router = express.Router();
+// const router = express.Router();
 
-/* GET users listing. */
-router.get('/', (req, res, next) => {
-  res.render('shoppingcard');
-});
+// /* GET users listing. */
+// router.get('/', (req, res, next) => {
+//   res.render('shoppingcard');
+// });
 
-router.post('/', (req, res, next) => {
-  res.send('hello fedor');
-});
-module.exports = router;
+// router.post('/', (req, res, next) => {
+//   res.send('hello fedor');
+// });
+// module.exports = router;

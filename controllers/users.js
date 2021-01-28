@@ -9,26 +9,26 @@ const User = require('../models/user');
 const saltRounds = 10;
 
 function renderZero(req, res) {
-  return res.render('zero', { title: 'Welcome!' });
+  return res.render('user/zero', { title: 'Welcome!' });
 }
 
 function userAuth(req, res) {
-  return res.render('auth', { title: 'Autorisation' });
+  return res.render('user/auth', { title: 'Autorisation' });
 }
 
 function userReg(req, res) {
-  return res.render('reg', { title: 'Registration' });
+  return res.render('user/reg', { title: 'Registration' });
 }
 
 function userOut(req, res) {
-  return res.render('out', { title: 'Have a good day!' });
+  return res.render('user/out', { title: 'Have a good day!' });
 }
 
 async function regToBase(req, res) {
   const { name, email, pass } = req.body;
   if (name && email && pass) {
     const checkUserEmail = await User.findOne({ email });
-    if (checkUserEmail) return res.render('zero', { title: 'This email have used' });
+    if (checkUserEmail) return res.render('user/zero', { title: 'This email have used' });
     try {
       let newRole;
       if (req.body.role === 'seller') {
@@ -36,7 +36,7 @@ async function regToBase(req, res) {
       } else if (req.body.role === 'buyer') {
         newRole = false;
       } else {
-        return res.render('zero', { title: 'Выберите роль' });
+        return res.render('user/zero', { title: 'Выберите роль' });
       }
       const hash = await bcrypt.hash(pass, saltRounds);
       const user = new User({
