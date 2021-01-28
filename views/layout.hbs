@@ -33,15 +33,76 @@
 
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
         aria-expanded="false">
-        <i class="fas fa-cart-plus"> {{cartcount}}  Shopping cart</i>
+        <i class="fas fa-cart-plus"> {{cartcount}} Shopping cart</i>
       </a>
 
       <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        <li><a class="dropdown-item" href="#">Buy</a></li>
-        <li><a class="dropdown-item" href="#">Show</a></li>
+        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#">Buy</a></li>
+        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal2" href="/shop/showcart">Show</a></li>
       </ul>
     </li>
   </ul>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Buy...Launch demo modal 1
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Shoping cart</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                {{!-- <th scope="col">#</th> --}}
+                <th scope="col">Title</th>
+                <th scope="col">Art</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Increase</th>
+                <th scope="col">Decrease</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                {{#each products}}
+                {{!-- <th scope="row">{{}}</th> --}}
+                <td>{{this.good.title}}</td>
+                <td>{{this.good.art}}</td>
+                <td>{{this.good.price}}</td>
+                <td>{{this.good.length}}</td>
+                <td><button type="button" id="increase" class="btn btn-outline-success">Increase</button></td>
+                <td><button type="button" id="increase" class="btn btn-outline-danger">Decrease"</button></td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
   {{/if}}
 
   {{{body}}}

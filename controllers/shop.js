@@ -33,10 +33,22 @@ async function idItem(req, res, next) {
   return res.redirect('/shop/cards');
 }
 
+function showcart(req, res) {
+  res.send({ title: "hello" });
+  /*   Product.find((error, data) => {
+      const boxProducts = [];
+      const displaySize = 3;
+      for (let i = 0; i < data.length; i += displaySize) {
+        boxProducts.push(data.slice(i, i + displaySize));
+      }
+      return res.render('shop/cards', { title: 'Shopping Cart', products: boxProducts });
+    }); */
+}
+
 module.exports = {
   renderCard,
   idItem,
-
+  showcart,
   // userAuth,
   // userReg,
   // userOut,

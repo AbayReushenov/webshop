@@ -10,3 +10,6 @@ module.exports = router;
 
 router.route('/:id')
   .get(controllerShop.idItem);
+
+router.route('/showcart')
+  .get(controllerShop.showcart);
