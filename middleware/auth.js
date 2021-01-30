@@ -11,6 +11,7 @@ const checkAuth = async (req, res, next) => {
       const cartItemArrayNum = await CartBuer.find({ buyer: userId });
       const count = cartItemArrayNum.length;
       res.locals.cartcount = count;
+      res.locals.buscet = cartItemArrayNum;
       return next();
     }
     return res.status(401).redirect('/');
