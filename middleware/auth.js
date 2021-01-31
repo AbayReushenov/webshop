@@ -8,10 +8,16 @@ const checkAuth = async (req, res, next) => {
     if (user) {
       res.locals.name = user.name; /* res.locals.name =  локальная переменная ответа */
       // req.app.locals.aaa = 'aaa'; /* req.app.locals = глобальные переменые */
-      const cartItemArrayNum = await CartBuer.find({ buyer: userId });
-      const count = cartItemArrayNum.length;
+      const docs = await CartBuer.find({ buyer: userId }).populate('good');
+      //---------------------------------------------------------------
+      // const docs = await CartBuer.aggregate()
+      //   .match({ buyer: { $eq: userId } })
+      //   .group({ _id: '$good', count: { $sum: 1 } });
+
+      //--------------------------------------------------------------
+      const count = await CartBuer.count({ buyer: userId });
       res.locals.cartcount = count;
-      res.locals.buscet = cartItemArrayNum;
+      res.locals.buscet = docs;
       return next();
     }
     return res.status(401).redirect('/');
