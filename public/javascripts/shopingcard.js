@@ -17,16 +17,16 @@ do {
 listArr.forEach((elem) => elem.push(list[elem[0]]));
 console.table(listArr);
 
-{/* <tbody>
-<tr>
-  {{#each products}}
-  {{!-- <th scope="row">{{}}</th> --}}
-  <td>{{this.good.title}}</td>
-  <td>{{this.good.art}}</td>
-  <td>{{this.good.price}}</td>
-  <td>{{this.good.length}}</td>
-  <td><button type="button" id="increase" class="btn btn-outline-success">Increase</button></td>
-  <td><button type="button" id="increase" class="btn btn-outline-danger">Decrease"</button></td>
-</tr>
-{{/each}}
-</tbody> */}
+const tbody = document.querySelector('#targetbody');
+for (let i = 0; i < listArr.length; i += 1) {
+  const element = document.createElement('tr');
+  element.innerHTML = `
+  <td>${listArr[i][1]}</td>
+  <td>${listArr[i][4]}</td>
+  <td>${listArr[i][3]}</td>
+  <td>${listArr[i][6]}</td>
+  <td><button type="button" id="${listArr[i][0]}i" class="btn btn-outline-success"> + </button></td>
+  <td><button type="button" id="${listArr[i][0]}d" class="btn btn-outline-danger"> - </button></td>
+   `;
+  tbody.appendChild(element);
+}

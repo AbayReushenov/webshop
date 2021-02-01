@@ -39,7 +39,8 @@
 
       <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
         <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#">Buy</a></li>
-        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal2" href="/shop/showcart">Show</a></li>
+        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal2"
+            href="/shop/showcart">Show</a></li>
       </ul>
     </li>
   </ul>
@@ -63,10 +64,10 @@
     </div>
   </div>
   <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel"  data-buscet="{{buscet}}">Shoping cart</h5>
+          <h5 class="modal-title" id="exampleModalLabel" data-buscet="{{buscet}}">Shoping cart</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -82,18 +83,7 @@
                 <th scope="col">Decrease</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                {{#each products}}
-                {{!-- <th scope="row">{{}}</th> --}}
-                <td>{{this.good.title}}</td>
-                <td>{{this.good.art}}</td>
-                <td>{{this.good.price}}</td>
-                <td>{{this.good.length}}</td>
-                <td><button type="button" id="increase" class="btn btn-outline-success">Increase</button></td>
-                <td><button type="button" id="increase" class="btn btn-outline-danger">Decrease"</button></td>
-              </tr>
-              {{/each}}
+            <tbody id="targetbody">
             </tbody>
           </table>
         </div>
