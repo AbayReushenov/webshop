@@ -1,3 +1,4 @@
+<div id="errormessage"></div>
 {{# each products }}
 <div class="row">
   {{# each this }}
@@ -10,7 +11,7 @@
         <p class="description">{{this.description}}</p>
         <div class="clearfix">
           <div class="price pull-left">$ {{this.price}}</div>
- {{!--          <button type="button" id="this._id" class="btn btn-info btnadd">Add to Cart</button> --}}
+          {{!-- <button type="button" id="this._id" class="btn btn-info btnadd">Add to Cart</button> --}}
           <a href="/shop/{{this._id}}" class="btn btn-success pull-right" role="button">Add to shoping Cart</a>
           <br>
         </div>
